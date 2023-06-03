@@ -43,8 +43,8 @@ bun run src/index.ts
 
 ## Roadmap
 
-- [] Send mmi-alerts via whatsapp messages.
+- [ ] Send mmi-alerts via whatsapp messages.
 
     `but I am currently unable to do so because my Twilio account is suspended`
 
-- [] Use Github workflow (cronjobs) to send alerts
+- [ ] Use Github workflow (cronjobs) to send alerts
