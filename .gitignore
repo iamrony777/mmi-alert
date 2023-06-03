@@ -1,0 +1,7 @@
+dist
+node_modules
+out*
+*.js
+# *.d.ts
+*.map
+.env

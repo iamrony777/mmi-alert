@@ -1,0 +1,14 @@
+{
+  "name": "mmi-alert",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^0.6.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "undici": "^5.22.1"
+  }
+}
