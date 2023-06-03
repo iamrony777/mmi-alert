@@ -1,6 +1,6 @@
 import { Now } from './types/now';
 import { request } from 'undici';
-import { ZONES, getImage } from './template/mmi';
+import { ZONES, getImage } from './handlers/mmi';
 
 export async function getMMI() {
     const { statusCode, body } = await request('https://api.tickertape.in/mmi/now');
