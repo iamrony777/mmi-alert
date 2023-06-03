@@ -37,3 +37,14 @@ bun run src/index.ts
   alertMessage: "It suggests that investors are acting greedy in the market, but the action to be taken depends on the MMI trajectory. If MMI is coming Neutral towards Greed zone, it means greed is increasing in the market and investors should be cautious in opening new positions. If MMI is dropping from Extreme Greed, it means greed is reducing in the market. But more patience is suggested before looking for fresh opportunities."
 }
 ```
+
+
+---
+
+## Roadmap
+
+- [] Send mmi-alerts via whatsapp messages.
+
+    `but I am currently unable to do so because my Twilio account is suspended`
+
+- [] Use Github workflow (cronjobs) to send alerts
