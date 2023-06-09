@@ -1,4 +1,4 @@
-import { Now } from './types/now';
+import type { Now } from './types/now';
 import { request } from 'undici';
 import { ZONES, getImage } from './handlers/mmi';
 
@@ -36,4 +36,4 @@ export async function getMMI() {
 }
 
 
-console.log(await getMMI())
+// console.log(await getMMI())

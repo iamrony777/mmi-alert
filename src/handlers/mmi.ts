@@ -1,10 +1,10 @@
 
-import { Zones } from "../types/now";
+import type { Zones } from "../types/now";
 import { request } from "undici";
 import { pipeline } from 'stream';
-import { createWriteStream , existsSync, mkdirSync } from 'node:fs';
-import { promisify } from "node:util";
-import { parse } from 'node:path'
+import { createWriteStream , existsSync, mkdirSync } from 'fs';
+import { promisify } from "util";
+import { parse } from 'path'
 
 
 export const ZONES: Zones = {
@@ -59,6 +59,7 @@ export async function getImage(output: string = 'out/mmi.jpg') {
     quality: 100,
     response_type: 'image',
     scale_factor: 1,
+    fresh: true,
     url: 'https://www.tickertape.in/market-mood-index',
   };
 
