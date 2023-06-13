@@ -1,8 +1,16 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 micros:
-  - name: mmi-alert
+  - name: mmi-alert-api
     src: ./
     engine: nodejs16
     primary: true
-    dev: bun src/index.ts
+    commands:
+      - pnpm exec tsc
+      - mkdir out
+    presets:
+      env:
+        - name: APIFLASH_ACCESS_KEY
+          description: Get your accesskey from https://apiflash.com/
+    run: node dist/api/index.js
+    dev: npx nodemon api/index.ts

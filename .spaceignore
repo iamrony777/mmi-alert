@@ -1,6 +1,5 @@
 node_modules
-out/
 dist/
+out/
 *.map
 .env
-.space

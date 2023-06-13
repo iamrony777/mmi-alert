@@ -9,7 +9,7 @@ export async function getMMI() {
         throw new Error(await body.text());
     } else {
         const res = await body.json();
-        const picutreOutput = 'out/mmi.jpg';
+        // const picutreOutput = 'mmi.jpg';
         const mmi: Now = {
             ...res,
             getLevel: function (mmiLevel: number): string {
@@ -29,11 +29,12 @@ export async function getMMI() {
         return {
             value: mmi.data.currentValue,
             level: mmi.getLevel(mmi.data.currentValue),
-            picutrePath: await getImage(picutreOutput) ? picutreOutput : '',
+            mmiImage: await getImage('mmi.jpg') ? true : false,
+            heatMapImage: await getImage('heatmap.jpg') ? true : false,
             alertMessage: mmi.getAlert(mmi.data.currentValue)
         }
     }
 }
 
 
-// console.log(await getMMI())
+// getMMI().then(console.log).catch(console.error);
