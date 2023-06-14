@@ -29,8 +29,8 @@ export async function getMMI() {
         return {
             value: mmi.data.currentValue,
             level: mmi.getLevel(mmi.data.currentValue),
-            mmiImage: await getImage('mmi.jpg') ? true : false,
-            heatMapImage: await getImage('heatmap.jpg') ? true : false,
+            // mmiImage: await getImage('mmi.jpg') ? true : false,
+            // heatMapImage: await getImage('heatmap.jpg') ? true : false,
             alertMessage: mmi.getAlert(mmi.data.currentValue)
         }
     }

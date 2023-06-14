@@ -3,9 +3,31 @@ import { getMMI } from "../src/index";
 import { readFile } from "fs";
 import path from "path";
 import { Drive } from "deta";
+import createFastify, { FastifyInstance, FastifyServerOptions } from "fastify";
+import fastifyRequestLogger from "@mgcrea/fastify-request-logger";
+
+const buildFastify = (options: FastifyServerOptions = {}): FastifyInstance => {
+  const fastify = createFastify({
+    logger: {
+      level: "debug",
+      transport: {
+        target: "pino-pretty",
+        options: {
+          translateTime: "HH:MM:ss Z",
+          ignore: "pid,hostname,plugin",
+        },
+      },
+    },
+    ...options,
+  });
+
+  fastify.register(fastifyRequestLogger);
+
+  return fastify;
+};
 
 const drive = Drive("photos");
-const app = fastify({ logger: true });
+const app = buildFastify();
 
 app.route({
   method: "GET",
@@ -17,7 +39,7 @@ app.route({
         properties: {
           value: { type: "number" },
           level: { type: "string" },
-          picutrePath: { type: "string" },
+          // picutrePath: { type: "string" },
           alertMessage: { type: "string" },
         },
       },
@@ -47,7 +69,11 @@ app.route({
 });
 
 app.get("/", async (request, reply) => {
-  return { hello: "world" };
+  return {
+    "/mmi": "Get MMI info in JSON format",
+    "/image?file=mmi.jpg": "Get MMI info in image",
+    "/mmi?file=heatmap.jpg": "Get NIFTY 50 Heatmap from TradingView",
+  };
 });
 
 (async () => {

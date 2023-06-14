@@ -115,3 +115,4 @@ export async function getImage(fileName: string = "mmi.jpg") {
 
 // @ts-ignore
 // getImage("heatmap.jpg").then(console.log);
+

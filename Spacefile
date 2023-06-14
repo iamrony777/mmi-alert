@@ -1,7 +1,7 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 micros:
-  - name: mmi-alert-api
+  - name: mmi-api
     src: ./
     engine: nodejs16
     primary: true
@@ -14,3 +14,9 @@ micros:
           description: Get your accesskey from https://apiflash.com/
     run: node dist/api/index.js
     dev: npx nodemon api/index.ts
+    actions:
+      - id: "update-images"
+        name: "update-images"
+        description: "Fetch latest images from pre-defined config"
+        trigger: "schedule"
+        default_interval: "0 9-15 * * 1-5" # At minute 1 past every hour from 9 through 15 on every day-of-week from Monday through Friday.
